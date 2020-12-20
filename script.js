@@ -25,36 +25,74 @@ function main(){
 }
 
 function setTime(){
-    var time = new Date();
-    let hour = time.getHours
-    let minutes = time.getMinutes
-    let seconds = time.getSeconds
-    curTime = hour + ":" + minutes + ":" + seconds;
-    return curTime;
-    // hour = (hour > 12) ? hour-12 : hour;
+    
+
+
+    curTime = formatTime();
+    document.getElementById("curTime").innerHTML = curTime;
+
+    
     
 }
 
-function formatTime(thing){
+function formatTime(){
+
+    var time = returnDate()
+    let hour = time.getHours()
+    let minutes = time.getMinutes()
+    let seconds = time.getSeconds()
     hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour);
-    if (minutes < 10){
-        minutes = "0" + minutes;
-    }
-    if (seconds < 10){
-        seconds = "0" + seconds;
-    }
-
+    seconds = (seconds < 10) ? ("0" + seconds): seconds; 
+    minutes = (minutes < 10) ? ("0" + minutes): minutes;
+    curTime = hour + ":" + minutes + ":" + seconds + amOrPm();
+    return curTime;
 
 }
 
-function changeTime(){
-    var timeId = document.getElementById("curTime");
-    curTime = setTime();
-    formatTime();
-    timeId.innerText = curTime
-    console.log("success")
+// function formatTime(thing){
+//     hour = (hour == 0) ? 12 : ((hour > 12) ? (hour - 12): hour);
+//     if (minutes < 10){
+//         minutes = "0" + minutes;
+//     }
+//     if (seconds < 10){
+//         seconds = "0" + seconds;
+//     }
+
+
+// }
+
+// function changeTime(){
+//     var timeId = document.getElementById("curTime");
+//     curTime = setTime();
+//     formatTime();
+//     timeId.innerText = curTime
+//     console.log("success")
+// }
+
+function returnDate(){
+    var time = new Date();
+    return time;
 }
 
-setInterval(changeTime(), 1000)
+// function setCurPer(){
 
+//     if()
+
+// }
+
+
+function amOrPm(){
+    var time = new Date();
+
+    if(time.getHours() >= 12){
+        return "PM"
+    }
+    else{
+        return "AM"
+    }
+
+}
+
+setInterval(setTime, 1000)
+setInterval(setCurPer, 60000)
 
