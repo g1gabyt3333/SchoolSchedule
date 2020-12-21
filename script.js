@@ -75,10 +75,43 @@ function returnDate(){
 }
 
 function setCurPer(){
-    if(returnDate().getHours == 17 && returnDate().getMinutes == 44){
-       document.getElementsByTagName("tr")[1].setClass("curPer")
-       console.log("Success")
+    
+    if(returnDate().getHours() >= 7 && returnDate().getMinutes() >= 40 &&  (returnDate().getHours() <= 8 && returnDate().getMinutes() <= 50)){ //7:40 - 8:50
+       document.getElementsByTagName("tr")[1].classList.add("curPer")
+       console.log("Success1")
     }
+    else if(returnDate().getHours() >= 8 && returnDate().getMinutes() >= 55 &&  (returnDate().getHours() <= 9 && returnDate().getMinutes() <= 55)){ //8:55 - 9:55
+        document.getElementsByTagName("tr")[1].classList.remove("curPer")
+        document.getElementsByTagName("tr")[2].classList.add("curPer")
+        console.log("Success2")
+    }
+    else if(returnDate().getHours() >= 10 && returnDate().getMinutes() >= 0 &&  (returnDate().getHours() <= 11 && returnDate().getMinutes() <= 0)){ // 10-11
+        document.getElementsByTagName("tr")[2].classList.remove("curPer")
+        document.getElementsByTagName("tr")[3].classList.add("curPer")
+        console.log("Success3")
+    }
+    else if(returnDate().getHours() >= 11 && returnDate().getMinutes() >= 5 &&  (returnDate().getHours(12, 5) <= 12)){ //11:05 - 12:05
+        document.getElementsByTagName("tr")[3].classList.remove("curPer")
+        document.getElementsByTagName("tr")[4].classList.add("curPer")
+        console.log("Success4")
+    }
+    else if(returnDate().getHours() >= 13 && returnDate().getMinutes() >= 15 &&  (returnDate().getHours() <= 14 && returnDate().getMinutes() <= 5)){ //1:15 - 2:05
+        document.getElementsByTagName("tr")[4].classList.remove("curPer")
+        document.getElementsByTagName("tr")[5].classList.add("curPer")
+        console.log("Success5")
+    }
+    else if(returnDate().getHours() >= 14 && returnDate().getMinutes() >= 10 &&  (returnDate().getHours() <= 14 && returnDate().getMinutes() <= 50)){ //2:10 - 2:50
+        document.getElementsByTagName("tr")[5].classList.remove("curPer")
+        document.getElementsByTagName("tr")[6].classList.add("curPer")
+        console.log("Success6")
+    }
+
+    else{
+        document.getElementsByTagName("tr")[6].classList.remove("curPer");
+        console.log("Success7")
+    }
+
+    
 
 }
 
@@ -95,6 +128,11 @@ function amOrPm(){
 
 }
 
+setTime()
+setCurPer()
 setInterval(setTime, 1000)
-setInterval(setCurPer, 1000)
+
+
+setInterval(setCurPer, 30000)
+
 
