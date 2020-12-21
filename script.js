@@ -74,11 +74,13 @@ function returnDate(){
     return time;
 }
 
-// function setCurPer(){
+function setCurPer(){
+    if(returnDate().getHours == 17 && returnDate().getMinutes == 44){
+       document.getElementsByTagName("tr")[1].setClass("curPer")
+       console.log("Success")
+    }
 
-//     if()
-
-// }
+}
 
 
 function amOrPm(){
@@ -94,5 +96,5 @@ function amOrPm(){
 }
 
 setInterval(setTime, 1000)
-setInterval(setCurPer, 60000)
+setInterval(setCurPer, 1000)
 
