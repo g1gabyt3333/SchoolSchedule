@@ -86,6 +86,65 @@ function amOrPm(){
 
 }
 
+function timeToNum(){ //converts time object into a number object which i can use to set periods
+    var time = returnDate();
+    let hour = time.getHours()
+    let minutes = time.getMinutes()
+    let seconds = time.getSeconds()
+
+    return (parseInt((hour.toString()).concat(minutes)))
+
+}
+
+function setCurPer(){
+    var time = timeToNum()
+    if(time >= 740 && time <= 850){
+        document.getElementsByTagName("tr")[1].classList.add("curPer")
+        
+    }
+    else if(time >= 855 && time <= 955){
+        document.getElementsByTagName("tr")[2].classList.add("curPer")
+        document.getElementsByTagName("tr")[1].classList.remove("curPer")
+    }
+    else if(time >= 1000 && time <= 1100){
+        document.getElementsByTagName("tr")[3].classList.add("curPer")
+        document.getElementsByTagName("tr")[2].classList.remove("curPer")
+
+    }
+    else if(time >= 1105 && time <= 1205){
+        document.getElementsByTagName("tr")[4].classList.add("curPer")
+        document.getElementsByTagName("tr")[3].classList.remove("curPer")
+
+    }
+    else if(time >= 1315 && time <= 1400){
+        document.getElementsByTagName("tr")[5].classList.add("curPer")
+        document.getElementsByTagName("tr")[4].classList.remove("curPer")
+
+    }
+    else if(time >= 1405 && time <= 1450){
+        document.getElementsByTagName("tr")[6].classList.add("curPer")
+        document.getElementsByTagName("tr")[5].classList.remove("curPer")
+
+    }
+
+    else if(time >= 1206 && time <= 1314){
+        document.getElementsByTagName("tr")[4].classList.remove("curPer")
+        alert("Lunch Time")
+
+    }
+
+    else{
+        // console.log("school is closed")
+        document.getElementsByTagName("tr")[6].classList.remove("curPer")
+    }
+  
+
+
+
+}
+
+
+
 
 function returnDate(){
     var time = new Date();
@@ -99,5 +158,6 @@ for(var i = 0; i<=5; i++){
 
 setTime()
 setInterval(setTime, 1000)
+setInterval(setCurPer, 1000)
 
 
