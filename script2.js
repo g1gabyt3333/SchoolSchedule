@@ -98,11 +98,11 @@ function amOrPm(){
 
 }
 
-function timeToNum(){ //converts time object into a number object which i can use to set periods
+function timeToNum(){ //converts time object into a number object which i can use to set periods and compare
     var time = returnDate();
     let hour = time.getHours()
     let minutes = time.getMinutes()
-    let seconds = time.getSeconds()
+    
 
     return (parseInt((hour.toString()).concat(minutes)))
 
