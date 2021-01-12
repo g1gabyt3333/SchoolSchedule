@@ -1,16 +1,22 @@
 var periods = [1, 2, 3, 4, 5, 6, 7, 8]
 var classes = ["Gym", "Language Arts", "Chemistry", "AP Comp Sci", "Geometry", "Study Hall", "AS I", "French"]
+var links = [
+    "https://zoom.us/j/97991291140?pwd=RFpIK25tSHFTclh6ZnJVSW9NZHFrdz09",
+    "https://zoom.us/j/9437202128",
+    "https://zoom.us/j/94242533946?pwd=K1h2SVZhQStPUE1iQWM0TE54aDJUdz09 ",
+    "https://zoom.us/j/91881714994",
+    "https://zoom.us/my/grygiel",
+    "#",
+    "https://zoom.us/j/95876814970?pwd=cytBUHlmRUpidDd5ZnY0Rm94WDJVZz09",
+    "https://zoom.us/j/94176617821?pwd=cVhOUmM3cUtEbllIZVhoN2o2djFDdz09",
+]
 
 var aDay = [1, 2, 3, 4, 5, 6];
 var bDay = [5, 6, 7, 8, 1, 2];
 var cDay = [4, 1, 2, 3, 7, 8];
 var dDay = [8, 5, 6, 7, 3, 4]
 
-function setPer(){
-    for(var i = 0; i<=5; i++){
-        var getPerCol = document.getElementsByClassName("per")[i].innerText = periods[i];
-    }
-}
+
 
 function setDay(){
     var day = document.getElementsByTagName("input")[0].value;
@@ -21,6 +27,9 @@ function setDay(){
         for(var i = 0; i<aDay.length; i++){
 
                 document.getElementsByClassName("class")[i].innerText = classes[aDay[i]-1];
+                document.getElementsByClassName("zoom")[i].setAttribute("href", links[aDay[i]-1])
+
+
             
             // console.log("test")
         }
@@ -28,18 +37,21 @@ function setDay(){
     else if(day === "b"){
         for(var i = 0; i<bDay.length; i++){
             document.getElementsByClassName("class")[i].innerText = classes[bDay[i]-1];
+            document.getElementsByClassName("zoom")[i].setAttribute("href", links[bDay[i]-1])
             // console.log("test2")
         }
     }
     else if(day === "c"){
         for(var i = 0; i<cDay.length; i++){
             document.getElementsByClassName("class")[i].innerText = classes[cDay[i]-1];
+            document.getElementsByClassName("zoom")[i].setAttribute("href", links[cDay[i]-1])
             // console.log("test3")
         }
     }
     else if(day === "d"){
         for(var i = 0; i<dDay.length; i++){
             document.getElementsByClassName("class")[i].innerText = classes[dDay[i]-1];
+            document.getElementsByClassName("zoom")[i].setAttribute("href", links[dDay[i]-1])
             // console.log("test4")
         }
     }
@@ -154,6 +166,7 @@ function returnDate(){
 for(var i = 0; i<=5; i++){
     var getPerCol = document.getElementsByClassName("per")[i].innerText = periods[i];
 }
+
 
 
 setTime()
