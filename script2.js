@@ -111,7 +111,7 @@ function timeToNum(){ //converts time object into a number object which i can us
 var showAlert = true;
 function setCurPer(){
     var time = timeToNum()
-    console.log(time)
+
     if(time >= 740 && time <= 850){
         document.getElementsByTagName("tr")[1].classList.add("curPer")
         
