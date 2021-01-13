@@ -3,7 +3,7 @@ var classes = ["Gym", "Language Arts", "Chemistry", "AP Comp Sci", "Geometry", "
 var links = [
     "https://zoom.us/j/97991291140?pwd=RFpIK25tSHFTclh6ZnJVSW9NZHFrdz09",
     "https://zoom.us/j/9437202128",
-    "https://zoom.us/j/94242533946?pwd=K1h2SVZhQStPUE1iQWM0TE54aDJUdz09 ",
+    "https://zoom.us/j/94242533946?pwd=K1h2SVZhQStPUE1iQWM0TE54aDJUdz09",
     "https://zoom.us/j/91881714994",
     "https://zoom.us/my/grygiel",
     "#",
@@ -102,14 +102,16 @@ function timeToNum(){ //converts time object into a number object which i can us
     var time = returnDate();
     let hour = time.getHours()
     let minutes = time.getMinutes()
+    minutes = (minutes < 10) ? ("0" + minutes): minutes;
     
 
     return (parseInt((hour.toString()).concat(minutes)))
 
 }
-
+var showAlert = true;
 function setCurPer(){
     var time = timeToNum()
+    console.log(time)
     if(time >= 740 && time <= 850){
         document.getElementsByTagName("tr")[1].classList.add("curPer")
         
@@ -141,7 +143,12 @@ function setCurPer(){
 
     else if(time >= 1206 && time <= 1314){
         document.getElementsByTagName("tr")[4].classList.remove("curPer")
-        alert("Lunch Time")
+
+        if(showAlert == true){
+            alert("Lunch Time")
+            showAlert = false;
+        }
+            
 
     }
 
