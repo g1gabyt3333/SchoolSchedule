@@ -19,7 +19,7 @@ var dDay = [8, 5, 6, 7, 3, 4]
 
 
 function setDay(){
-    var day = document.getElementsByTagName("input")[0].value;
+    var day = document.getElementsByTagName("input")[0].value.toLowerCase();
     
 
 
